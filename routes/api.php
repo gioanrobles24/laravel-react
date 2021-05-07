@@ -19,6 +19,8 @@ Route::post('/products/create', 'App\Http\Controllers\API\ProductsController@cre
 Route::get('/products/list', 'App\Http\Controllers\API\ProductsController@list');
 Route::get('/products/get/{id}', 'App\Http\Controllers\API\ProductsController@get');
 Route::put('/products/update/{id}', 'App\Http\Controllers\API\ProductsController@update');
+Route::delete('/products/delete/{id}', 'App\Http\Controllers\API\ProductsController@delete');
+
 Route::post('/comments/create', 'App\Http\Controllers\API\CommentsController@create');
 
 

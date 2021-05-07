@@ -91,5 +91,22 @@ class ProductsController extends Controller
         }
         return $response;
   
-      }
+    }
+    public function delete($id){
+
+        try {
+          $res = Products::where('prod_id', $id)->delete();
+          $response['res'] = $res;
+          
+          $response['message'] = "Deleted successful";
+          $response['success'] = true; 
+          
+        } catch (\Exception $e) {
+          
+            $response['message'] = $e->getMessage();
+          $response['success'] = false;
+        }
+  
+        return $response;
+    }
 }

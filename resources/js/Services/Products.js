@@ -54,5 +54,16 @@ productServices.get = async (id) => {
     return res;
 
   } 
+  
+  productServices.delete = async (prodId) => {
+    const urlDelete = baseUrl+"/delete/"+prodId
+    const res = await axios.delete(urlDelete)
+      .then(response=> { 
+        return response.data 
+      })
+      .catch(error =>{ return error })
+    return res;
+  }
+  
 
 export default productServices
