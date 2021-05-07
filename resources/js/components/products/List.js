@@ -61,7 +61,7 @@ const List = () => {
                   <td>{item.prod__name}</td>
                   <td>{item.prod__price}</td>
                   <td>
-                    <Link class="btn btn-outline-info" to={"/products/edit/"+item.prod_id}>Edit</Link>
+                    <Link class="btn btn-outline-info" to={'/product/edit/'+item.prod_id}> Edit</Link>
                      <p> </p> <a href="#" class="btn btn-danger"   onClick={() => onClickDelete(i,item.prod_id)}>    Delete </a>
                      <a href="#" class="btn btn-success">    View comments </a>
                   </td>

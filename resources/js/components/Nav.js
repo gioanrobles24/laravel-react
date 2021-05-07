@@ -14,7 +14,7 @@ const Nav = () => {
                 <Link class="nav-link" to="/products/form">Create</Link>
                 </li>
                 <li class="nav-item">
-                <Link class="nav-link" to="/product/edit/5">Edit</Link>
+               {/*  <Link class="nav-link" to="/product/edit/5">Edit</Link> */}
                 </li>
             </ul>
             </div>
