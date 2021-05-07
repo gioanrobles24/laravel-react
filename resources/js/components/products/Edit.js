@@ -1,9 +1,10 @@
 import React , { useState, useEffect } from 'react'
 
 import productServices from '../../Services/Products'
-
+import { useHistory } from "react-router-dom"
 const Edit = ( props ) => {
-    
+  const history = useHistory();
+
   const [ prodId, setId ] = useState(null);
   const [ prodName, setProdName ] = useState("");
   const [ prodPrice, setProdPrice ] = useState("");
@@ -18,7 +19,7 @@ const Edit = ( props ) => {
 
     if (res.success) {
       alert(res.message)
-
+       history.push("/")
     }
     else {
       alert(res.message)

@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react'
+import { useHistory } from 'react-router';
 
 import productServices from '../../Services/Products'
 
 const Form = () => {
+  const history = useHistory();
   const [ prodName , setProdName ] = useState(null);
   const [ prodPrice, setProdPrice ] = useState(null);
   
@@ -16,6 +18,7 @@ const Form = () => {
 
     if (res.success) {
       alert(res.message)
+      history.pushState("/")
     }
     else {
       alert(res.message)
