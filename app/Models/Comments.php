@@ -10,12 +10,12 @@ class Comments extends Model
     use HasFactory;
     protected $table = "comments";
 
-    protected $primaryKey = "comment_id"
+    protected $primaryKey = "comment_id";
     
     protected $fillable = [
         "comment_text", 
         "prod_id"
-    ]
+    ];
     public $timestamps = false;
 
     public function prod(){

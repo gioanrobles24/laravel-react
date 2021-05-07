@@ -18,7 +18,7 @@ const Edit = ( props ) => {
 
     if (res.success) {
       alert(res.message)
-      
+
     }
     else {
       alert(res.message)
@@ -46,13 +46,6 @@ const Edit = ( props ) => {
       }
     }
     fetchDataProd();
-
-    /* async function fetchDataRol(){
-      const res = await employeeServices.listRole();
-      setListRol(res.data)
-    }
-    fetchDataRol(); */
-
   },[])
   
     return (

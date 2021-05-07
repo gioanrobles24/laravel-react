@@ -5,6 +5,7 @@ import Nav from './Nav'
 import Form from "./products/Form"
 import List from "./products/List"
 import Edit from "./products/Edit"
+import AddComment from "./Comments/AddComment"
 
 import {
     BrowserRouter as Router,
@@ -21,6 +22,7 @@ import {
               <Route path="/product/index" exact component={List} />
               <Route path="/products/form"  component={Form} />
               <Route path="/product/edit/:id" component={Edit} />
+              <Route path="/comments/index"  component={AddComment} />
             </Switch>
           </main>
         </Router>

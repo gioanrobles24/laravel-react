@@ -22,3 +22,4 @@ Route::get('/product/index', 'App\Http\Controllers\ProductsController@index');
 Route::get('/products/list', 'App\Http\Controllers\ProductsController@index');
 Route::get('/products/form', 'App\Http\Controllers\ProductsController@index');
 Route::get('/product/edit/{id}', 'App\Http\Controllers\ProductsController@index');
+Route::get('/comments/index', 'App\Http\Controllers\ProductsController@index');
