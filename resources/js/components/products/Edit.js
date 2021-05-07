@@ -1,56 +1,87 @@
-import React from 'react'
+import React , { useState, useEffect } from 'react'
+
+import productServices from '../../Services/Products'
 
 const Edit = ( props ) => {
     
-    const userId = props.match.params.id; 
+  const [ prodId, setId ] = useState(null);
+  const [ prodName, setProdName ] = useState("");
+  const [ prodPrice, setProdPrice ] = useState("");
+  
+  const updateEmployee = async () => {
 
+    const data = {
+      prodId, prodName, prodPrice
+    }
+
+    const res = await productServices.update(data);
+
+    if (res.success) {
+      alert(res.message)
+      
+    }
+    else {
+      alert(res.message)
+    }
+
+  }
+
+  useEffect(() => {
+
+    async function fetchDataProd(){
+      const  id = props.match.params.id;
+
+      const res = await productServices.get(id);
+
+      if (res.success) {
+        console.log(res);
+        const data = res.data
+        setId(data.prod_id)
+        setProdName(data.prod__name)
+        setProdPrice(data.prod__price)
+    
+      }
+      else {
+        alert(res.message)
+      }
+    }
+    fetchDataProd();
+
+    /* async function fetchDataRol(){
+      const res = await employeeServices.listRole();
+      setListRol(res.data)
+    }
+    fetchDataRol(); */
+
+  },[])
+  
     return (
         <div>
-          <h4>Edit customer  {userId}  </h4>
-          <hr/>
-          <div class="row">
-            <div class="col-md-6 mb-3">
-              <label for="firstName">Name employee</label>
-              <input type="text" class="form-control"/>
-            </div>
+            <h4>Edit product  </h4>
+        <hr/>
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label for="prodName"> producto </label>
+            <input type="text" class="form-control" value={prodName} 
+               onChange={ (event) => setProdName(event.target.value)} 
+            />
           </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label for="price">Precio</label>
+            <input type="price" class="form-control" value={prodPrice} 
+               onChange={ (event) => setProdPrice(event.target.value)} 
+            />
+          </div>
+        </div>
+    
+ 
     
           <div class="row">
             <div class="col-md-6 mb-3">
-              <label for="email">Email</label>
-              <input type="email" class="form-control" placeholder="you@example.com" />
-            </div>
-          </div>
-    
-          <div class="row">
-            <div class="col-md-6 mb-3">
-              <label for="address">Address</label>
-              <input type="text" class="form-control" placeholder="1234 Main St" />
-            </div>
-          </div>
-    
-          <div class="row">
-            <div class="col-md-6 mb-3">
-              <label for="address">Phone </label>
-              <input type="text" class="form-control" placeholder="123467890" />
-            </div>
-          </div>
-    
-          <div class="row">
-            <div class="col-md-6 mb-3">
-              <label for="phone">Rol </label>
-              <select id="inputState" class="form-control" onChange={(event)=> this.setState({selectJob:event.target.value})}>
-                 <option selected>Choose...</option>
-                 <option>Admin</option>
-                 <option>Programmer</option>
-                 <option>Tester</option>
-              </select>
-            </div>
-          </div>
-    
-          <div class="row">
-            <div class="col-md-6 mb-3">
-              <button class="btn btn-primary btn-block" type="submit">Save</button>
+              <button class="btn btn-primary btn-block" type="submit" onClick={()=>updateEmployee()} >Save</button>
             </div>
           </div>
         </div>
