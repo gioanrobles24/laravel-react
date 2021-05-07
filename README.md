@@ -3,5 +3,6 @@
 # instalación 
    * crear la base de datos en el .env file
    * ejecutar `php artisan migrate` 
-   * npm install para instalar las dependencias de react
+   * `npm install` para instalar las dependencias de react
+   * `composer install ` para instalar las de laravel
    * y por ultimo correr el proyecto 
